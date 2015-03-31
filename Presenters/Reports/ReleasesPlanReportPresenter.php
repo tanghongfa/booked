@@ -60,7 +60,7 @@ class ReleasesPlanReportPresenter extends ActionPresenter
 	 * @param IGroupViewRepository $groupRepo
 	 */
 	public function __construct(
-		IGenerateReportPage $page,
+		IReleasesReportPage $page,
 		UserSession $user,
 		IReportingService $reportingService,
 		IResourceRepository $resourceRepo,
@@ -87,6 +87,7 @@ class ReleasesPlanReportPresenter extends ActionPresenter
 		$this->page->BindAccessories($this->resourceRepo->GetAccessoryList());
 		$this->page->BindSchedules($this->scheduleRepo->GetAll());
 		$this->page->BindGroups($this->groupRepo->GetList()->Results());
+		$this->page->BindResourceTypes($this->resourceRepo->GetResourceTypes());
 	}
 
 	public function ProcessAction()

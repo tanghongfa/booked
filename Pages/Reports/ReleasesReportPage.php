@@ -8,7 +8,7 @@ require_once(ROOT_DIR . 'Pages/Reports/IDisplayableReportPage.php');
 require_once(ROOT_DIR . 'Pages/Ajax/AutoCompletePage.php');
 require_once(ROOT_DIR . 'Presenters/Reports/ReleasesPlanReportPresenter.php');
 
-interface IGenerateReportPage extends IDisplayableReportPage, IActionPage
+interface IReleasesReportPage extends IDisplayableReportPage, IActionPage
 {
 	/**
 	 * @abstract
@@ -110,9 +110,15 @@ interface IGenerateReportPage extends IDisplayableReportPage, IActionPage
 	 * @param array|GroupItemView[] $groups
 	 */
 	public function BindGroups($groups);
+
+	/**
+	 * @abstract
+	 * @param array|ResourceType[] $resourceTypes
+	 */
+	public function BindResourceTypes($resourceTypes);
 }
 
-class ReleasesReportPage extends ActionPage implements IGenerateReportPage
+class ReleasesReportPage extends ActionPage implements IReleasesReportPage
 {
 	/**
 	 * @var GenerateReportPresenter
@@ -273,6 +279,11 @@ class ReleasesReportPage extends ActionPage implements IGenerateReportPage
 	public function BindSchedules($schedules)
 	{
 		$this->Set('Schedules', $schedules);
+	}
+
+	public function BindResourceTypes($resourceTypes)
+	{
+		$this->Set('ResourceTypes', $resourceTypes);
 	}
 
 	/**
