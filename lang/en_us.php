@@ -621,6 +621,7 @@ class en_us extends Language
 		$strings['GenerateReport'] = 'Create New Report';
 		$strings['MySavedReports'] = 'My Saved Reports';
 		$strings['CommonReports'] = 'Common Reports';
+		$strings['ReleasePlanReports'] = 'Release Plan Reports';
 		$strings['ViewDay'] = 'View Day';
 		$strings['Group'] = 'Group';
 		$strings['ManageConfiguration'] = 'Application Configuration';

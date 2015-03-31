@@ -178,6 +178,7 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 					<li><a href="{$Path}reports/{Pages::REPORTS_GENERATE}">{translate key=GenerateReport}</a></li>
 					<li><a href="{$Path}reports/{Pages::REPORTS_SAVED}">{translate key=MySavedReports}</a></li>
 					<li><a href="{$Path}reports/{Pages::REPORTS_COMMON}">{translate key=CommonReports}</a></li>
+					<li><a href="{$Path}reports/{Pages::REPORTS_RELEASE_PLAN}">{translate key=ReleasePlanReports}</a></li>
 				</ul>
 			</li>
 			{/if}

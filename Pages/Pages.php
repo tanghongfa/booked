@@ -44,6 +44,7 @@ class Pages
 	const REPORTS_GENERATE = 'generate-report.php';
 	const REPORTS_SAVED = 'saved-reports.php';
 	const REPORTS_COMMON = 'common-reports.php';
+	const REPORTS_RELEASE_PLAN = "generate-release-plan-report.php";
 	const RESERVATION = 'reservation.php';
 	const RESERVATION_FILE = 'reservation-file.php';
 	const REGISTRATION = 'register.php';
