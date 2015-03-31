@@ -21,6 +21,8 @@ class Report_Range
 	const CURRENT_MONTH = 'CURRENT_MONTH';
 	const CURRENT_WEEK = 'CURRENT_WEEK';
 	const TODAY = 'TODAY';
+	const NEXT_TWO_MONTHS = 'NEXT_TWO_MONTHS';
+	const NEXT_THREE_MONTHS = 'NEXT_THREE_MONTHS';
 
 	/**
 	 * @var Report_Range|string
@@ -64,6 +66,16 @@ class Report_Range
 		{
 			$this->start = Date::Create($now->Year(), $now->Month(), $now->Day(), 0, 0, 0, $timezone);
 			$this->end = $this->start->AddDays(1);
+		}
+		if ($this->range == self::NEXT_TWO_MONTHS)
+		{
+			$this->start = Date::Create($now->Year(), $now->Month(), $now->Day(), 0, 0, 0, $timezone);
+			$this->end = $this->start->AddMonths(2);
+		}
+		if ($this->range == self::NEXT_THREE_MONTHS)
+		{
+			$this->start = Date::Create($now->Year(), $now->Month(), $now->Day(), 0, 0, 0, $timezone);
+			$this->end = $this->start->AddMonths(3);
 		}
 	}
 

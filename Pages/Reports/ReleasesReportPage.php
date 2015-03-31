@@ -6,7 +6,7 @@ Custom Release Report
 require_once(ROOT_DIR . 'Pages/SecurePage.php');
 require_once(ROOT_DIR . 'Pages/Reports/IDisplayableReportPage.php');
 require_once(ROOT_DIR . 'Pages/Ajax/AutoCompletePage.php');
-require_once(ROOT_DIR . 'Presenters/Reports/GenerateReportPresenter.php');
+require_once(ROOT_DIR . 'Presenters/Reports/ReleasesPlanReportPresenter.php');
 
 interface IGenerateReportPage extends IDisplayableReportPage, IActionPage
 {
@@ -122,7 +122,7 @@ class ReleasesReportPage extends ActionPage implements IGenerateReportPage
 	public function __construct()
 	{
 		parent::__construct('Reports', 1);
-		$this->presenter = new GenerateReportPresenter(
+		$this->presenter = new ReleasesPlanReportPresenter(
 			$this,
 			ServiceLocator::GetServer()->GetUserSession(),
 			new ReportingService(new ReportingRepository()),
@@ -154,7 +154,7 @@ class ReleasesReportPage extends ActionPage implements IGenerateReportPage
 	public function ProcessPageLoad()
 	{
 		$this->presenter->PageLoad();
-		$this->Display('Reports/generate-report.tpl');
+		$this->Display('Reports/generate-release-plan-report.tpl');
 	}
 
 	/**
