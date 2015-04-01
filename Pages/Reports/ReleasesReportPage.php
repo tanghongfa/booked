@@ -56,6 +56,12 @@ interface IReleasesReportPage extends IDisplayableReportPage, IActionPage
 	 * @abstract
 	 * @return int
 	 */
+	public function GetResourceTypeId();
+
+	/**
+	 * @abstract
+	 * @return int
+	 */
 	public function GetAccessoryId();
 
 	/**
@@ -176,7 +182,8 @@ class ReleasesReportPage extends ActionPage implements IReleasesReportPage
 	 */
 	public function GetResultSelection()
 	{
-		return $this->GetValue(FormKeys::REPORT_RESULTS);
+		//hardcode to use LIST for now.
+		return "LIST"; //$this->GetValue(FormKeys::REPORT_RESULTS);
 	}
 
 	/**
@@ -217,6 +224,14 @@ class ReleasesReportPage extends ActionPage implements IReleasesReportPage
 	public function GetResourceId()
 	{
 		return $this->GetValue(FormKeys::RESOURCE_ID);
+	}
+	
+	/**
+	 * @return int
+	 */
+	public function GetResourceTypeId()
+	{
+		return $this->GetValue(FormKeys::RESOURCE_TYPE_ID);
 	}
 
 	/**

@@ -189,6 +189,6 @@ class ReleasesPlanReportPresenter extends ActionPresenter
 	 */
 	private function GetFilter()
 	{
-		return new Report_Filter($this->page->GetResourceId(), $this->page->GetScheduleId(), $this->page->GetUserId(), $this->page->GetGroupId(), $this->page->GetAccessoryId(), $this->page->GetParticipantId());
+		return new Report_Filter($this->page->GetResourceId(), $this->page->GetScheduleId(), $this->page->GetUserId(), $this->page->GetGroupId(), $this->page->GetAccessoryId(), $this->page->GetParticipantId(), $this->page->GetResourceTypeId());
 	}
 }

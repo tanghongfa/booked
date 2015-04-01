@@ -41,6 +41,12 @@ class Report_Filter
 	 */
 	private $groupId;
 
+
+	/**
+	* @var int|null
+	*/
+	private $resourceTypeId;
+
 	/**
 	 * @param $resourceId int|null
 	 * @param $scheduleId int|null
@@ -48,8 +54,9 @@ class Report_Filter
 	 * @param $groupId int|null
 	 * @param $accessoryId int|null
 	 * @param $participantId int|null
+	 * @param $resourceTypeId int|null This extra optional parameter is added for Telstra specific Release-Plan-Report
 	 */
-	public function __construct($resourceId, $scheduleId, $userId, $groupId, $accessoryId, $participantId)
+	public function __construct($resourceId, $scheduleId, $userId, $groupId, $accessoryId, $participantId, $resourceTypeId = null)
 	{
 		$this->resourceId = $resourceId;
 		$this->scheduleId = $scheduleId;
@@ -57,6 +64,7 @@ class Report_Filter
 		$this->groupId = $groupId;
 		$this->accessoryId = $accessoryId;
 		$this->participantId = $participantId;
+		$this->resourceTypeId = $resourceTypeId;
 	}
 
 	public function Add(ReportCommandBuilder $builder)
@@ -84,6 +92,10 @@ class Report_Filter
 		if (!empty($this->accessoryId))
 		{
 			$builder->WithAccessoryId($this->accessoryId);
+		}
+		if (!empty($this->resourceTypeId))
+		{
+			$builder->WithResourceTypeId($this->resourceTypeId);
 		}
 	}
 
