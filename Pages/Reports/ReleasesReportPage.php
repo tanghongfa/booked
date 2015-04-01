@@ -131,14 +131,17 @@ class ReleasesReportPage extends ActionPage implements IReleasesReportPage
 	 */
 	private $presenter;
 
+	private $resourceRepo; 
+
 	public function __construct()
 	{
 		parent::__construct('Reports', 1);
+		$this->resourceRepo = new ResourceRepository();
 		$this->presenter = new ReleasesPlanReportPresenter(
 			$this,
 			ServiceLocator::GetServer()->GetUserSession(),
 			new ReportingService(new ReportingRepository()),
-			new ResourceRepository(),
+			$this->resourceRepo,
 			new ScheduleRepository(),
 			new GroupRepository());
 	}
@@ -266,10 +269,24 @@ class ReleasesReportPage extends ActionPage implements IReleasesReportPage
 		return $this->GetValue(FormKeys::GROUP_ID);
 	}
 
+	private function mashReportData(IReport $report) {
+		//Need to mash around the data to make things working fine
+
+
+	}
+
+	private function loadResourcesInfo($resourceTypeId) {
+		//$resourceTypes = 
+	}
+
 	public function BindReport(IReport $report, IReportDefinition $definition)
 	{
 		$this->Set('Definition', $definition);
 		$this->Set('Report', $report);
+
+		//Log::Debug("************* %s", $this->GetResourceTypeId());
+
+		$this->Set('DaysInTheMonth', cal_days_in_month(CAL_GREGORIAN, 3, 2015));
 	}
 
 	/**
@@ -339,7 +356,7 @@ class ReleasesReportPage extends ActionPage implements IReleasesReportPage
 
 	public function ShowResults()
 	{
-		$this->Display('Reports/results-custom.tpl');
+		$this->Display('Reports/results-release-plan.tpl');
 	}
 
 	public function PrintReport()

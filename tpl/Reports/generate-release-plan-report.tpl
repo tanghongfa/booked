@@ -25,8 +25,7 @@ Custom Release Plan Report
 			</div>
 			<div class="input-set">
 				<span class="label">{translate key=FilterBy}</span>
-				<select class="textbox" {formname key=RESOURCE_TYPE_ID}>
-					<option value="">All Resource Types</option>
+				<select class="textbox" {formname key=RESOURCE_TYPE_ID}>					
 				{foreach from=$ResourceTypes item=resourceType}
 					<option value="{$resourceType->Id()}">{$resourceType->Name()}</option>
 				{/foreach}
